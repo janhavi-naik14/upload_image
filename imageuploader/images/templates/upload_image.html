@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'images/styles.css' %}">
+</head>
+<body>
+    <div class="centered-form">
+        <h2>Upload Image</h2>
+        <form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

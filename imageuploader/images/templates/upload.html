@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'images/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the home page!</h1>
+    <div class="centered-button-container">
+        <a href="{% url 'upload_image' %}" class="home-upload-button">Upload Image</a>
+    </div>
+</body>
+</html>

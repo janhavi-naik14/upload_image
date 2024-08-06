@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'images/styles.css' %}">
+</head>
+<body>
+    <h2>Image List</h2>
+    <ul>
+        {% for image in images %}
+        <li>
+            <p><strong>Title:</strong> {{ image.title }}</p>
+            <p><strong>View on Drive:</strong> <a href="https://drive.google.com/file/d/{{ image.drive_id }}" target="_blank" class="button">Click here</a></p>
+            <p><strong>Image URL:</strong> <a href="{{ image.public_url }}" target="_blank">{{ image.public_url }}</a></p>
+            <form action="{% url 'delete_image' image.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_image' %}" class="upload-link">Upload a new image</a>
+</body>
+</html>
